@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OptionsMenuFragment">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ayarlar_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/hesap_linear"
+            app:layout_constraintTop_toBottomOf="@+id/hesap_linear"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:id="@+id/theme_mode_text"
+                android:layout_width="121dp"
+                android:layout_height="match_parent"
+                android:text="Dark Mode"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/dark_mode_image"
+                android:layout_width="82dp"
+                android:layout_height="75dp"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_baseline_dark_mode_24"
+                tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/light_mode_image"
+                android:layout_width="82dp"
+                android:layout_height="75dp"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_baseline_light_mode_24"
+                tools:ignore="ContentDescription" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cikis_linear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/ayarlar_linear"
+            app:layout_constraintTop_toBottomOf="@+id/ayarlar_linear"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:id="@+id/cikis_text"
+                android:layout_width="122dp"
+                android:layout_height="match_parent"
+                android:text="Çıkış Yap"
+                android:textAlignment="center"
+                android:textSize="25sp" />
+
+            <ImageView
+                android:id="@+id/cikis_image"
+                android:layout_width="82dp"
+                android:layout_height="75dp"
+                app:srcCompat="@drawable/ic_baseline_logout_24"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

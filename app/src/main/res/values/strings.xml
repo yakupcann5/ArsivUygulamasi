@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">LUGAR</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Password</string>
+    <string name="giri_yap">Giriş Yap</string>
+    <string name="kay_t_ol">Kayıt Ol</string>
+    <string name="gezilen_yer">Gezilen Yer</string>
+    <string name="a_klama">Açıklama</string>
+    <string name="kullan_c_ad">Kullanıcı Adı</string>
+    <string name="kaydet">Kaydet</string>
+    <string name="guncelle">Güncelle</string>
+    <string name="konum">Konum</string>
+</resources>

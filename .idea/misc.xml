@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/buton.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_add_box_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_arrow_back_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_dark_mode_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_light_mode_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_logout_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_menu_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_more_vert_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_person_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_baseline_settings_24.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable-night/ic_launcher_background.xml" value="0.1815" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable/buton.xml" value="0.274" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1305" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/activity_main.xml" value="0.24592391304347827" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/activity_splash_screen.xml" value="0.16767983789260385" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/first_fregament_recycler_row.xml" value="0.33" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/fragment_detay.xml" value="0.1" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/fragment_first.xml" value="0.34479166666666666" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/fragment_fotograf_paylasma.xml" value="0.3489583333333333" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/fragment_login.xml" value="0.33" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/fragment_options_menu.xml" value="0.33" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/layout/toolbar.xml" value="0.2717391304347826" />
+        <entry key="..\:/Users/Yakup/Desktop/DetaySoft/ArsivUygulamas/app/src/main/res/menu/gezilen_yer_ekle.xml" value="0.2" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

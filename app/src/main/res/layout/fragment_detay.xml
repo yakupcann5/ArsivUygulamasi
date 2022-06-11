@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="detail"
+            type="com.example.arsivuygulamasi.Post" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DetayFragment">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/detayImageView"
+            android:layout_width="326dp"
+            android:layout_height="186dp"
+            android:layout_marginTop="70dp"
+            android:onClick="gorselSec"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/adsz"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+        <EditText
+            android:id="@+id/gezilen_yer_detay_isim_edit_text"
+            android:layout_width="330dp"
+            android:layout_height="43dp"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:text="@{detail.gezilenYer}"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detayImageView"
+            tools:ignore="Autofill,MissingConstraints" />
+
+        <EditText
+            android:id="@+id/gezilen_yer_detay_aciklama"
+            android:layout_width="330dp"
+            android:layout_height="145dp"
+            android:layout_marginTop="25dp"
+            android:hint="@string/a_klama"
+            android:inputType="text"
+            android:text="@{detail.kullaniciYorum}"
+            android:textAlignment="textStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gezilen_yer_detay_isim_edit_text"
+            tools:ignore="MissingConstraints" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/gezilen_yer_detay_guncelle_buton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:background="@drawable/buton"
+            android:text="@string/guncelle"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gezilen_yer_detay_aciklama"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="676dp" />
+
+        <EditText
+            android:id="@+id/gezilem_yer_detay_konum_text"
+            android:layout_width="330dp"
+            android:layout_height="145dp"
+            android:hint="@string/konum"
+            android:inputType="textUri"
+            android:textAlignment="textStart"
+            android:text="@{detail.konum}"
+            app:layout_constraintBottom_toTopOf="@+id/gezilen_yer_detay_guncelle_buton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gezilen_yer_detay_aciklama"
+            tools:ignore="TextViewEdits" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
