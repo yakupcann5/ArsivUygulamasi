@@ -19,7 +19,7 @@ import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 
-class FirstFragment : Fragment(), View.OnClickListener, OnDayNightStateChanged {
+class FirstFragment : Fragment(), View.OnClickListener {
     private lateinit var firstFragmentAdapter: FirstFragmentAdapter
     private lateinit var menuButton: ImageView
     private lateinit var ekleButton: ImageView
@@ -35,6 +35,10 @@ class FirstFragment : Fragment(), View.OnClickListener, OnDayNightStateChanged {
         auth = FirebaseAuth.getInstance()
         database = FirebaseFirestore.getInstance()
         verileriAl()
+        when (resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
+            Configuration.UI_MODE_NIGHT_NO -> {} // Night mode is not active, we're using the light theme
+            Configuration.UI_MODE_NIGHT_YES -> {} // Night mode is active, we're using dark theme
+        }
     }
 
     override fun onCreateView(
@@ -116,9 +120,5 @@ class FirstFragment : Fragment(), View.OnClickListener, OnDayNightStateChanged {
                 }
             }
         }
-    }
-
-    override fun onDayNightApplied(state: Int) {
-        //
     }
 }

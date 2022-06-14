@@ -1,8 +1,11 @@
 package com.example.arsivuygulamasi
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
+import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +20,19 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.arsivuygulamasi.databinding.FragmentDetayBinding
+import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.util.concurrent.TimeUnit
 
 
-class DetayFragment(val post: Post, context: Context) : Fragment(), View.OnClickListener {
+class DetayFragment(val post: Post, context: Context) : Fragment(),
+    View.OnClickListener {
     private lateinit var binding: FragmentDetayBinding
     private lateinit var menuButton: ImageView
     private lateinit var ekleButton: ImageView
@@ -34,11 +44,13 @@ class DetayFragment(val post: Post, context: Context) : Fragment(), View.OnClick
     private lateinit var guncellenecekYerKonum: EditText
     private lateinit var database: FirebaseFirestore
     private lateinit var firstFragmentAdapter: FirstFragmentAdapter
+    private lateinit var postID: String
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         database = FirebaseFirestore.getInstance()
+
 
     }
 
@@ -70,6 +82,14 @@ class DetayFragment(val post: Post, context: Context) : Fragment(), View.OnClick
         guncellenecekYerKonum = view.findViewById(R.id.gezilem_yer_detay_konum_text)
         Picasso.get().load(post.gorselUrl).into(binding.detayImageView)
 
+        database.collection("Post")
+            .addSnapshotListener { value, error ->
+                value?.forEach {
+                    postID = it.id
+
+
+                }
+            }
 
     }
 
@@ -78,20 +98,41 @@ class DetayFragment(val post: Post, context: Context) : Fragment(), View.OnClick
         when (v?.id) {
             R.id.gezilen_yer_detay_guncelle_buton -> {
                 Toast.makeText(requireContext(), "Post Güncellendi", Toast.LENGTH_SHORT).show()
+                update()
                 replaceFragment(FirstFragment())
             }
             R.id.toolbar_back_btn -> {
                 replaceFragment(FirstFragment())
             }
             R.id.toolbar_post_delete -> {
-                database.collection("Post").document(post.gezilenYer).delete().addOnCompleteListener {
-                    if (it.isSuccessful){
-                        Toast.makeText(requireContext(), "Post Silindi", Toast.LENGTH_SHORT).show()
-                        replaceFragment(FirstFragment())
-                    }else{
-                        Toast.makeText(requireContext(), "olmadı", Toast.LENGTH_SHORT).show()
+                val alertDialog = AlertDialog.Builder(context)
+                alertDialog.setTitle("Post Delete")
+                alertDialog.setMessage("Should You Delete The Post?")
+                alertDialog.setNegativeButton("No") { dialog, which -> dialog.dismiss() }
+                alertDialog.setPositiveButton("Yes") { dialog, which ->
+                    dialog.dismiss()
+                    val progress = ProgressDialog(context)
+                    progress.setTitle("Post Delete " + "...")
+                    progress.setMessage("The Post Is Being Deleted" + "...")
+                    progress.setCancelable(false)
+                    progress.show()
+                    CoroutineScope(Dispatchers.Main).launch {
+                        delay(TimeUnit.SECONDS.toMillis(2))
+                        progress.cancel()
                     }
+                    database.collection("Post").document(postID).delete()
+                        .addOnCompleteListener {
+                            if (it.isSuccessful) {
+                                Toast.makeText(requireContext(), "Post Silindi", Toast.LENGTH_SHORT)
+                                    .show()
+                                replaceFragment(FirstFragment())
+                            } else {
+                                Toast.makeText(requireContext(), "Post Silinemedi", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                    replaceFragment(LoginFragment())
                 }
+                alertDialog.show()
             }
         }
     }
@@ -102,5 +143,15 @@ class DetayFragment(val post: Post, context: Context) : Fragment(), View.OnClick
         changer.addToBackStack(null)
         changer.replace(R.id.flFragment, fragment)
         changer.commit()
+    }
+    fun update() {
+        val tarih = Timestamp.now()
+        val postHasMap = hashMapOf<String, Any>()
+        postHasMap.put("gorselurl", post.gorselUrl)
+        postHasMap.put("gezilenyer",guncellenecekYerIsim.text.toString())
+        postHasMap.put("kullaniciyorum",guncellenecekYerAciklama.text.toString())
+        postHasMap.put("tarih",tarih)
+        postHasMap.put("konum",guncellenecekYerKonum.text.toString())
+        database.collection("Post").document(postID).update(postHasMap)
     }
 }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".OptionsMenuFragment">
 
     <LinearLayout
@@ -24,10 +25,10 @@
             tools:ignore="UseCompoundDrawables">
 
             <TextView
-                android:id="@+id/theme_mode_text"
-                android:layout_width="121dp"
+                android:id="@+id/theme_dark_mode_text"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
-                android:text="Dark Mode"
+                android:text="@string/dark_mode"
                 android:textAlignment="center"
                 android:textSize="25sp" />
 
@@ -59,7 +60,7 @@
 
             <TextView
                 android:id="@+id/cikis_text"
-                android:layout_width="122dp"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:text="Çıkış Yap"
                 android:textAlignment="center"

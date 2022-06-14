@@ -12,4 +12,6 @@
     <string name="kaydet">Kaydet</string>
     <string name="guncelle">Güncelle</string>
     <string name="konum">Konum</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="light_mode">Light Mode</string>
 </resources>

@@ -9,8 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.first_fregament_recycler_row.view.*
+import kotlin.properties.Delegates
 
 class FirstFragmentAdapter(val postList: ArrayList<Post>, val context: Context) :
     RecyclerView.Adapter<FirstFragmentAdapter.PostHolder>() {
@@ -31,7 +33,7 @@ class FirstFragmentAdapter(val postList: ArrayList<Post>, val context: Context) 
         holder.itemView.gezilen_yer_kullanici_adi.text = postList[position].kullaniciEmail
         Picasso.get().load(postList[position].gorselUrl).into(holder.itemView.gezilen_yer_image)
         holder.itemView.setOnClickListener {
-            replaceFragment(DetayFragment(postList[position],context))
+        replaceFragment(DetayFragment(postList[position],context))
         }
     }
 

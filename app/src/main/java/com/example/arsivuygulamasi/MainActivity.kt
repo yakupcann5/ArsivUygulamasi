@@ -1,7 +1,10 @@
 package com.example.arsivuygulamasi
 
 import android.content.res.Configuration
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -12,6 +15,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window.statusBarColor = resources.getColor(R.color.toolbar)
         replaceFragment(LoginFragment())
     }
 
@@ -21,22 +26,5 @@ class MainActivity : AppCompatActivity() {
         changer.addToBackStack(null)
         changer.replace(R.id.flFragment, fragment)
         changer.commit()
-    }
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        val nightModeFlags = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-
-        if (nightModeFlags == Configuration.UI_MODE_NIGHT_NO){
-            applyDayNight(OnDayNightStateChanged.DAY)
-        }else{
-            applyDayNight(OnDayNightStateChanged.NIGHT)
-        }
-    }
-    private fun applyDayNight(state: Int){
-        if (state == OnDayNightStateChanged.DAY){
-            //apply day colors for your views
-        }else{
-            //apply night colors for your views
-        }
     }
 }

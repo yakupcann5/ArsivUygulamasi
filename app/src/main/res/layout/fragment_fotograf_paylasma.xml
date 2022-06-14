@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".FotografPaylasmaFragment">
 
     <include
@@ -57,15 +58,15 @@
         android:id="@+id/gezilen_yer_detay_guncelle_buton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="172dp"
+        android:background="@drawable/buton"
         android:text="@string/kaydet"
         android:textColor="@color/white"
-        android:background="@drawable/buton"
-        android:layout_marginTop="150dp"
-        app:layout_constraintTop_toBottomOf="@+id/gezilen_yer_detay_aciklama"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="676dp" />
+        app:layout_constraintTop_toBottomOf="@+id/gezilen_yer_detay_aciklama"
+        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/gezilem_yer_paylas_konum_text"
